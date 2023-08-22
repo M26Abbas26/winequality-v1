@@ -14,6 +14,10 @@ app = Flask(__name__)
 red_model = load('red_wine_quality_model.joblib')
 white_model = load('white_wine_quality_model.joblib')
 
+@app.route('/')
+def index():
+    return "Hello, this is my Flask app!"
+
 @app.route('/predict/red', methods=['POST'])
 def predict_red():
     data = request.get_json(force=True)
